@@ -1,5 +1,6 @@
 import React from "react";
 import { menuProductModel } from "../../../Interfaces";
+import { Link } from "react-router-dom";
 
 interface Props {
   menuProduct: menuProductModel;
@@ -14,12 +15,14 @@ function MenuProductCard(props: Props) {
       >
         <div className="card-body pt-2">
           <div className="row col-10 offset-1 p-4">
-            <img
-              src="https://via.placeholder.com/150"
-              style={{ borderRadius: "50%" }}
-              alt=""
-              className="w-100 mt-5 image-box"
-            />
+            <Link to={`/menuProductDetail/${props.menuProduct.productId}`}>
+              <img
+                src="https://via.placeholder.com/150"
+                style={{ borderRadius: "50%" }}
+                alt=""
+                className="w-100 mt-5 image-box"
+              />
+            </Link>
           </div>
 
           <i
@@ -52,13 +55,21 @@ function MenuProductCard(props: Props) {
 
           <div className="text-center">
             <p className="card-title m-0 text-success fs-3">
-              {props.menuProduct.name}
+              <Link
+                to={`/menuProductDetail/${props.menuProduct.productId}`}
+                style={{ textDecoration: "none", color: "green" }}
+              >
+                {props.menuProduct.name}
+              </Link>
             </p>
             <p className="badge bg-secondary" style={{ fontSize: "12px" }}>
               {props.menuProduct.categoryName}
             </p>
           </div>
-          <p className="card-text" style={{ textAlign: "center" }}>
+          <p
+            className="card-text"
+            style={{ textAlign: "center", color: "black" }}
+          >
             {props.menuProduct.description}
           </p>
           <div className="row text-center">
