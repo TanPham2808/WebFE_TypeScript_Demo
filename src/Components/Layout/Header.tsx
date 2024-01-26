@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { NavLink } from "react-router-dom";
 let logo = require("../../Assets/Images/mango.png");
 
 function Header() {
@@ -7,7 +8,14 @@ function Header() {
     <div>
       <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
-          <img src={logo} style={{ height: "40px" }} className="m-1" alt="aa" />
+          <NavLink className="nav-link" aria-current="page" to="/">
+            <img
+              src={logo}
+              style={{ height: "40px" }}
+              className="m-1"
+              alt="aa"
+            />
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,9 +30,18 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
+                <NavLink className="nav-link" aria-current="page" to="/">
                   Home
-                </a>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  aria-current="page"
+                  to="/shoppingCart"
+                >
+                  <i className="bi bi-cart"></i>
+                </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <a
